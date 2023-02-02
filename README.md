@@ -63,3 +63,182 @@ greeting = ."Hi";
 **Early Errors**
 in strictmode -> duplicate parameter names are not allowed
 
+```
+saySomething("Hello", "Hi");
+
+function saySomething(greeting, greeting) {
+  "use strict";
+  console.log(greeting);
+}
+```
+Hoisting
+
+```
+function saySomething() {
+  var greeting = "Hello";
+  {
+    greeting = "Howdy";
+    let greeting = "Hi";
+    console.log(greeting);
+  }
+}
+
+saySomething();
+```
+
+JS engine knows that a blocked-scoped variable with the same name will be declared.
+
+thus JS programs are parsed before any execution begins
+
+---
+
+CSS
+
+CSS specificity
+
+when the specificity values are exactly the same
+the one further down wins 
+
+```
+<ul id="summer-drinks">
+   <li class="favorite">Whiskey and Ginger Ale</li>
+   <li>Wheat Beer</li>
+   <li>Mint Julip</li>
+</ul>
+```
+
+```
+ul#summer-drinks li {
+   font-weight: normal;
+   font-size: 12px;
+   color: black;
+}
+```
+
+```
+.favorite {
+  color: red;
+  font-weight: bold;
+}
+```
+
+```
+ul#summer-drinks li.favorite {
+  color: red;
+  font-weight: bold;
+}
+```
+
+another way is to use the !important declaration
+
+```
+.favorite {
+  color: red !important;
+  font-weight: bold !important;
+}
+```
+
+Calculating CSS Specificity Value
+
+more to least
+style attribute -> id -> class, pseudo-class attribute -> elements
+
+element with inline styling wins, equivalent to 1000 points
+each id value, is given 100 points
+each class value, 10 points
+each element reference, 1 point
+
+it could also be thought as a vector [0, 0, 0, 0] since a css that specifies 13 elements is not considered
+more specific than a css that specifies a class
+
+
+
+
+
+
+
+
+
+ID selectors
+most powerful type of selector in terms of CSS specificity
+
+Normal Flow
+If there is no CSS applied to change the layout
+
+
+CSS Transitions
+
+transition-property: property; 
+transition-duration: duration;
+transition-timing-function: timing-fuction;
+
+---
+
+CSS terms
+
+1 em
+unit of measurement, relative to the size of the font
+
+historically the em unit was named after the width of the capital "M"
+
+inline
+: take up as much width as necessary, placed inline with the text and other elements around it.
+
+block
+: take up the full width of container
+
+---
+
+CSS Grid Layout
+
+define container element as grid using `display: grid`
+to set the column size: `grid-template-columns`
+to set the row size: `grid-template-rows`
+
+grid-columns
+grid-row
+
+grid line
+: dividing lines that make up the structure of the grid
+
+grid track
+: space between two adjacent grid lines (columns or row of a grid)
+
+grid area
+: the total space surrounded by four grid lines
+
+grid cell
+: space between two adjacent row and two adjacent column grid lines
+
+
+----
+
+add new element to HTML DOM in JavaSript
+
+createElement()
+- create an eleemnt
+
+`document.createElement(tagName)`
+
+appendChild()
+- add it to the HTML DOM
+
+
+-- 
+
+CSS Transitions
+
+you can create CSS Transitions with the transition property
+
+```
+.selector {
+  transition: property duration transition-timing-function delay;
+}
+```
+
+transition is the shorthand for 
+transition-property 
+transition-duration
+transition-timing-function
+transition-delay
+
